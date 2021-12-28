@@ -9,7 +9,7 @@ const IndexPage = () => {
       <p>Lorem ipsum</p>
       <StaticImage
         alt="Een Gatsby astronaut"
-        src="../images/gatsby-astronaut.png"
+        src="../images/Mission.jpg"
       />
       </Layout>
     </main>
