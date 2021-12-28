@@ -15,7 +15,7 @@
     height: 100%;
   }
   
-  .artist-info {
+  .burger-info {
     display: block;
     position: absolute;
     bottom: -50px;
@@ -29,18 +29,7 @@
     transition: all 0.5s ease;
   }
   
-  .wrapper:hover .artist-info {
+  .wrapper:hover .burger-info {
     bottom: 0;
     opacity: 1;
-  }
-  
-  .artist-name {
-    margin: 0;
-    color: #37ba83;
-  }
-  
-  .full-name {
-    text-transform: uppercase;
-    font-weight: 700;
-    margin: 0;
   }

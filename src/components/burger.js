@@ -4,7 +4,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
     wrapper,
     image,
-    artistInfo,
+    burgerInfo,
 } from "./burger.module.css"
 
 export const Burger = ({ burger, slug }) => {
@@ -19,7 +19,7 @@ export const Burger = ({ burger, slug }) => {
                 alt={burger.burgerFields.burgerPicture.altText}
             />
             <div className="">
-            <div className={artistInfo}>
+            <div className={burgerInfo}>
                 {burger.burgerFields.name && <p>{burger.burgerFields.name}</p>}
             </div>
             </div>
