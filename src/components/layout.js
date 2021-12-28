@@ -1,5 +1,6 @@
 import * as React from 'react'
 import { Link, useStaticQuery, graphql } from 'gatsby'
+import Footer from './footer'
 import { 
   container, 
   nav, 
@@ -9,7 +10,7 @@ import {
   siteTitle 
 } from './layout.module.css'
 
-const Layout = ({ pageTitle, children }) => {
+const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query {
       site {
@@ -17,12 +18,25 @@ const Layout = ({ pageTitle, children }) => {
           title
         }
       }
+      wpPage(slug: { eq: "contact-us" }) {
+        contactPageFields {
+          companyInformation {
+            address
+            city
+            postcode
+            socials {
+              twitter
+              instagram
+            }
+          }
+        }
+      }
     }
   `)
 
   return (
     <div className={container}>
-      <title>{pageTitle} | {data.site.siteMetadata.title}</title>
+      <title>{data.site.siteMetadata.title}</title>
       <nav className={nav}>
         <header className={siteTitle}>
           {data.site.siteMetadata.title}
@@ -48,9 +62,12 @@ const Layout = ({ pageTitle, children }) => {
         </ul>
       </nav>
       <main>
-        <h1>{pageTitle}</h1>
         {children}
       </main>
+      <Footer
+        siteTitle={data.site.siteMetadata.title}
+        companyInfo={data.wpPage.contactPageFields.companyInformation}
+      />
     </div>
   )
 }
