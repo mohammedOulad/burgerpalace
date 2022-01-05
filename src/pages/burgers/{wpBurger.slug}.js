@@ -12,6 +12,9 @@ import {
   burgerInfo,
   burgerPictures,
   burgerPicture,
+  descriptionIngrdients,
+  descriptionIngrdientsInfo,
+  allPictures
 } from "../../page.module.css"
 
 
@@ -40,14 +43,19 @@ const BurgerPage = ({
           <br />
 
           <div className={burgerDescription} dangerouslySetInnerHTML={{ __html: burger.description }} />
-          <p> <span className={burgerInfo} >Origin: </span>  {burger.origin}</p>
+          <div className={allPictures}>
+          <p> <span className={burgerInfo} >Origin: </span>   {burger.origin}</p>
           <p> <span className={burgerInfo} >Buns: </span>  {burger.buns}</p>
-          <p> <span className={burgerInfo} >Price: </span>  {burger.price}</p>
+          <p> <span className={burgerInfo} >Price: </span>  {burger.price} €</p>
           <p> <span className={burgerInfo} >sides:  </span> {burger.sides}</p>
           <br />
-          <p> <span className={burgerInfo} >ingredients: </span>  <br /> {burger.ingredients}</p>
+          </div>
         </div>
         <GatsbyImage className={headerPicture} image={image} alt={burger.burgerPicture.altText} />
+      </div>
+
+      <div className={descriptionIngrdients}>
+        <p> <span className={descriptionIngrdientsInfo} >ingredients: </span>  <br /> {burger.ingredients}</p>
       </div>
 
       <div className={burgerPictures}>

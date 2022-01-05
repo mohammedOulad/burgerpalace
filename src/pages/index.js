@@ -8,10 +8,8 @@ import {
   headerInfo,
   headerPicture,
   headerTitle,
-  CTA,
-  section,
-  subtitle,
-  burgers
+  burgers,
+  featuredBurgersStyle
 } from "../page.module.css"
 
 const IndexPage = ({
@@ -23,17 +21,15 @@ const IndexPage = ({
 
   return (
     <Layout>
+      <h1 className={headerTitle}>{homePageFields.headerHome.title}</h1>
       <div className={header}>
         <div className={headerInfo}>
-          <h1 className={headerTitle}>{homePageFields.headerHome.title}</h1>
+
           <div
             dangerouslySetInnerHTML={{
               __html: homePageFields.headerHome.description,
             }}
           />
-          <a className={CTA} target="__blank" href={homePageFields.callToAction.link}>
-            {homePageFields.callToAction.linkText}
-          </a>
         </div>
         <div>
           <GatsbyImage
@@ -44,12 +40,15 @@ const IndexPage = ({
         </div>
       </div>
 
-      <div className={section}>
-        <h2 className={subtitle}>{homePageFields.featuredBurgers.title}</h2>
+      <div className={featuredBurgersStyle}>
+        <h2 >{homePageFields.featuredBurgers.title}</h2>
         <p>{homePageFields.featuredBurgers.description}</p>
         <div className={burgers}>
           {homePageFields.featuredBurgers.burgers.map(burger => (
-            <Burger slug={`burgers/${burger.slug}`} key={burger.id} burger={burger} />
+            <div>
+              <h3>{burger.slug.replace("-", " ")}</h3>
+              <Burger slug={`burgers/${burger.slug}`} key={burger.id} burger={burger} />
+            </div>
           ))}
         </div>
       </div>

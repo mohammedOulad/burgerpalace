@@ -3,13 +3,7 @@ import { graphql } from 'gatsby'
 import Layout from '../../components/layout'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Burger from '../../components/burger'
-import {
-  hero,
-  section,
-  subtitle,
-  burgers,
-  description,
-} from "../../page.module.css"
+import { banner, section, title, burgers, description } from "../../page.module.css"
 
 const BurgersPage = ({
   data: {
@@ -18,23 +12,26 @@ const BurgersPage = ({
   } }) => {
   const image = getImage(burgersPageFields.headerBurgers.picture.localFile)
   return (
-    <Layout pageTitle="Artists of Inghelbrecht Agency">
+    <Layout pageTitle="burger palace">
       <GatsbyImage
-        className={hero}
+        className={banner}
         image={image}
         alt={burgersPageFields.headerBurgers.picture.altText}
       />
-      <div className={section}>
-        <h2 className={subtitle}>{burgersPageFields.headerBurgers.title}</h2>
+      <div >
+        <h2 className={title} >{burgersPageFields.headerBurgers.title}</h2>
         <div
-        className={description}
+
           dangerouslySetInnerHTML={{
             __html: burgersPageFields.headerBurgers.description,
           }}
         />
         <div className={burgers}>
           {burgersInfo.map(({ node: burger }) => (
-            <Burger key={burger.id} slug={burger.slug} burger={burger} />
+            <div>
+              <h3>{burger.slug.replace("-", " ")}</h3>
+              <Burger key={burger.id} slug={burger.slug} burger={burger} />
+            </div>
           ))}
         </div>
       </div>

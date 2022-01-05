@@ -7,7 +7,7 @@ p {
     justify-content: center;
     margin-top: 120px;
     padding: 2rem 0;
-    color: #e0e0e0;
+    color: black;
   }
   
   .wrapper > div:first-child {
@@ -16,7 +16,7 @@ p {
   }
   
   .wrapper > div:last-child {
-    margin-left: 1rem;
+    margin-left: 35rem;
   }
   
   .title {
@@ -27,25 +27,13 @@ p {
     font-size: 1rem;
     text-transform: uppercase;
     font-weight: 600;
-    color: white;
-    margin-right: auto;
-  }
-  
-  .title::after {
-    content: ".";
-    position: absolute;
-    right: -5px;
-    bottom: 3px;
-    font-size: 1.8rem;
-    font-family: serif;
-    color: #37ba83;
+    color: black;
     margin-right: auto;
   }
   
   .socials {
     display: flex;
     align-items: center;
-    margin-top: 0.5rem;
   }
   
   .instagram,
